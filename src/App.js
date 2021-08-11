@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Container from './components/Container';
+import Dice from './components/Dice';
+import GlobalStyles from './helpers/GlobalStyles';
+import Button from './components/Button';
+import React, { useState } from 'react';
+// import History from './components/History';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
 }
+
+const App = () => {
+  const [ dice1, setDice1 ] = useState(1);
+  const [ dice2, setDice2 ] = useState(2);
+
+  const roll = () => {
+    setDice1(getRandomInt(1, 7));
+    setDice2(getRandomInt(1, 7));
+  };
+
+  return (
+    <Container>
+      <GlobalStyles />
+      <Dice number={dice1} />
+      <Dice number={dice2} />
+      <Button clickHandler={roll}>Roll</Button>
+    </Container>
+  );
+};
 
 export default App;
