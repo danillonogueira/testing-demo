@@ -10,6 +10,6 @@ const StyledContainer = styled.div`
   flex-direction: column;
 `;
 
-const Container = (props) => <StyledContainer>{props.children}</StyledContainer>;
+const Container = ({ children }) => <StyledContainer>{children}</StyledContainer>;
 
 export default Container;
