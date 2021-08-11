@@ -23,8 +23,8 @@ const App = () => {
   return (
     <Container>
       <GlobalStyles />
-      <Dice number={dice1} />
-      <Dice number={dice2} />
+      <Dice>{dice1}</Dice>
+      <Dice>{dice2}</Dice>
       <Button clickHandler={roll}>Roll</Button>
     </Container>
   );

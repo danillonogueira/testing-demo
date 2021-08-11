@@ -12,6 +12,6 @@ const StyledDice = styled.div`
   margin: 0 10px;
 `;
 
-const Dice = ({ number }) => <StyledDice>{number}</StyledDice>;
+const Dice = ({ children }) => <StyledDice>{children}</StyledDice>;
 
 export default Dice;
