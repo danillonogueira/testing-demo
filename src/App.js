@@ -27,46 +27,35 @@ const App = () => {
     };
   };
 
-  const setDices = (values) => {
-    const { firstRoll, secondRoll } = values;
-
+  const setDices = ({ firstRoll, secondRoll }) => {
     setFirstDice(firstRoll);
     setSecondDice(secondRoll);
   };
 
   const isItFull = () => rolls.length === 6;
 
-  const storeRolls = (currentRolls, newRoll) => {
+  const storeRolls = (currentRolls, { firstRoll, secondRoll }) => {
     setRolls([
       ...currentRolls,
-      newRoll
+      {
+        firstRoll,
+        secondRoll
+      }
     ]);
   };
 
   const roll = () => {
-    const { firstRoll, secondRoll } = getValues();
+    const values = getValues();
 
-    setDices({ firstRoll, secondRoll });
+    setDices(values);
 
     if (isItFull()) {
       const modifiedRolls = [...rolls];
 
       modifiedRolls.shift();
-      storeRolls(
-        modifiedRolls, 
-        { 
-          firstRoll, 
-          secondRoll 
-        }
-      );
+      storeRolls(modifiedRolls, values);
     } else {
-      storeRolls(
-        rolls, 
-        { 
-          firstRoll, 
-          secondRoll 
-        }
-      );
+      storeRolls(rolls, values);
     }
   };
 
