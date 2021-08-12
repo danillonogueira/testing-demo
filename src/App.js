@@ -20,32 +20,53 @@ const App = () => {
   const [ secondDice, setSecondDice ] = useState(getRandomInt(1, 7));
   const [ rolls, setRolls ] = useState([]);
 
-  const roll = () => {
-    const firstRoll = getRandomInt(1, 7);
-    const secondRoll =  getRandomInt(1, 7);
+  const getValues = () => {
+    return {
+      firstRoll: getRandomInt(1, 7),
+      secondRoll: getRandomInt(1, 7)
+    };
+  };
+
+  const setDices = (values) => {
+    const { firstRoll, secondRoll } = values;
 
     setFirstDice(firstRoll);
     setSecondDice(secondRoll);
+  };
 
-    if (rolls.length === 6) {
-      const _rolls = [...rolls];
+  const isItFull = () => rolls.length === 6;
 
-      _rolls.shift();
-      setRolls([
-        ..._rolls,
+  const storeRolls = (currentRolls, newRoll) => {
+    setRolls([
+      ...currentRolls,
+      newRoll
+    ]);
+  };
+
+  const roll = () => {
+    const { firstRoll, secondRoll } = getValues();
+
+    setDices({ firstRoll, secondRoll });
+
+    if (isItFull()) {
+      const modifiedRolls = [...rolls];
+
+      modifiedRolls.shift();
+      storeRolls(
+        modifiedRolls, 
         { 
           firstRoll, 
           secondRoll 
         }
-      ]);
+      );
     } else {
-      setRolls([
-        ...rolls, 
+      storeRolls(
+        rolls, 
         { 
           firstRoll, 
           secondRoll 
         }
-      ]);
+      );
     }
   };
 
