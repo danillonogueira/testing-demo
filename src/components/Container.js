@@ -7,7 +7,8 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  background: #EEE;
+  position: relative;
 `;
 
 const Container = ({ children }) => <StyledContainer>{children}</StyledContainer>;
