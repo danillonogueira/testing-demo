@@ -26,13 +26,27 @@ const App = () => {
 
     setFirstDice(firstRoll);
     setSecondDice(secondRoll);
-    setRolls([
-      ...rolls, 
-      { 
-        firstRoll, 
-        secondRoll 
-      }
-    ]);
+
+    if (rolls.length === 6) {
+      const _rolls = [...rolls];
+
+      _rolls.shift();
+      setRolls([
+        ..._rolls,
+        { 
+          firstRoll, 
+          secondRoll 
+        }
+      ]);
+    } else {
+      setRolls([
+        ...rolls, 
+        { 
+          firstRoll, 
+          secondRoll 
+        }
+      ]);
+    }
   };
 
   const clear = () => {
