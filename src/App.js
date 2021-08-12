@@ -50,7 +50,7 @@ const App = () => {
         <Button clickHandler={roll}>Roll</Button>
       </Card>
       <Card>
-        <History rolls={rolls}/>
+        <History rolls={rolls} />
         <Button clickHandler={clear}>Clear</Button>
       </Card>
       <Background />

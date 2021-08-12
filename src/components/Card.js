@@ -6,12 +6,12 @@ const StyledCard = styled.div`
   border-radius: 5px;
   z-index: 2;
   background: #FFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
-  margin-right: 60px;
+  margin: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Card = ({ children }) => <StyledCard>{children}</StyledCard>;
