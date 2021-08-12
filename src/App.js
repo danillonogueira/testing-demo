@@ -3,7 +3,7 @@ import Dice from './components/Dice';
 import GlobalStyles from './helpers/GlobalStyles';
 import Button from './components/Button';
 import React, { useState } from 'react';
-// import History from './components/History';
+import History from './components/History';
 import Dices from './components/Dices';
 import Background from './components/Background';
 import Card from './components/Card';
@@ -18,10 +18,25 @@ const getRandomInt = (min, max) => {
 const App = () => {
   const [ firstDice, setFirstDice ] = useState(getRandomInt(1, 7));
   const [ secondDice, setSecondDice ] = useState(getRandomInt(1, 7));
+  const [ rolls, setRolls ] = useState([]);
 
   const roll = () => {
-    setFirstDice(getRandomInt(1, 7));
-    setSecondDice(getRandomInt(1, 7));
+    const firstRoll = getRandomInt(1, 7);
+    const secondRoll =  getRandomInt(1, 7);
+
+    setFirstDice(firstRoll);
+    setSecondDice(secondRoll);
+    setRolls([
+      ...rolls, 
+      { 
+        firstRoll, 
+        secondRoll 
+      }
+    ]);
+  };
+
+  const clear = () => {
+    setRolls([]);
   };
 
   return (
@@ -35,7 +50,8 @@ const App = () => {
         <Button clickHandler={roll}>Roll</Button>
       </Card>
       <Card>
-        
+        <History rolls={rolls}/>
+        <Button clickHandler={clear}>Clear</Button>
       </Card>
       <Background />
     </Container>
