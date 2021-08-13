@@ -7,12 +7,13 @@ import History from './components/History';
 import Dices from './components/Dices';
 import Background from './components/Background';
 import Card from './components/Card';
+import Headline from './components/Headline';
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_integer_between_two_values
 const getRandomInt = (min, max) => {
-  const _min = Math.ceil(min);
+  const roundedMin = Math.ceil(min);
 
-  return Math.floor(Math.random() * (Math.floor(max)- _min)) + _min;
+  return Math.floor(Math.random() * (Math.floor(max)- roundedMin)) + roundedMin;
 };
 
 const App = () => {
@@ -66,6 +67,7 @@ const App = () => {
   return (
     <Container>
       <GlobalStyles />
+      <Headline />
       <Card>
         <Dices>
           <Dice>{firstDice}</Dice>
