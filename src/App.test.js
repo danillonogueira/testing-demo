@@ -1,35 +1,43 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import App from './App';
 
-test('pair of random d6 numbers is obtained after click on btn', () => {
-  render(<App />);
-
+const clickRollBtn = () => {
   const button = screen.getByText('roll');
 
   fireEvent.click(button);
+};
 
-  const dice1Num = Math.floor(screen.getByTestId('dice-1').textContent);
+const getDiceNum = (diceId) => {
+  return Math.floor(screen.getByTestId(diceId).textContent);
+};
 
-  expect(dice1Num).toBeGreaterThan(0);
-  expect(dice1Num).toBeLessThan(7);
+const isInTheRange = (num) => {
+  expect(num).toBeGreaterThan(0);
+  expect(num).toBeLessThan(7);
+};
 
-  // Testing dice 2 number
+const getDicesNums = () => {
+  return {
+    dice1Num: getDiceNum('dice-1'),
+    dice2Num: getDiceNum('dice-2')
+  };
+};
 
-  const dice2Num = Math.floor(screen.getByTestId('dice-2').textContent);
+test('pair of random d6 numbers is displayed after click on btn', () => {
+  render(<App />);
+  clickRollBtn();
 
-  expect(dice2Num).toBeGreaterThan(0);
-  expect(dice2Num).toBeLessThan(7);
+  const { dice1Num, dice2Num } = getDicesNums();
+
+  isInTheRange(dice1Num);
+  isInTheRange(dice2Num);
 });
 
-test('rolled pair of d6/d6 numbers is printed in the history component', () => {
+test('rolled pair of d6/d6 numbers is displayed in the history component', () => {
   render(<App />);
+  clickRollBtn();
 
-  const button = screen.getByText('roll');
-
-  fireEvent.click(button);
-
-  const dice1Num = Math.floor(screen.getByTestId('dice-1').textContent);
-  const dice2Num = Math.floor(screen.getByTestId('dice-2').textContent);
+  const { dice1Num, dice2Num } = getDicesNums();
 
   expect(screen.getByText(`${dice1Num}/${dice2Num}`)).toBeTruthy();
 });
