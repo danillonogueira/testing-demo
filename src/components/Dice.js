@@ -13,6 +13,6 @@ const StyledDice = styled.div`
   color: #ff4046;
 `;
 
-const Dice = ({ children }) => <StyledDice>{children}</StyledDice>;
+const Dice = ({ children, testId }) => <StyledDice data-testid={testId}>{children}</StyledDice>;
 
 export default Dice;

@@ -24,7 +24,10 @@ const StyledText = styled.div`
 const Headline = () => {
   return (
     <StyledHeadline>
-      <StyledDices alt="two giant red dices" src={dices} />
+      <StyledDices 
+        alt="two giant red dices" 
+        src={dices} 
+      />
       <StyledText>Dice Roller 2000</StyledText>
     </StyledHeadline>
   );

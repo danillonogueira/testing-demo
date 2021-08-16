@@ -70,10 +70,10 @@ const App = () => {
       <Headline />
       <Card>
         <Dices>
-          <Dice>{firstDice}</Dice>
-          <Dice>{secondDice}</Dice>
+          <Dice testId={'dice-1'}>{firstDice}</Dice>
+          <Dice testId={'dice-2'}>{secondDice}</Dice>
         </Dices>
-        <Button clickHandler={roll}>Roll</Button>
+        <Button clickHandler={roll}>roll</Button>
       </Card>
       <Card>
         <History rolls={rolls} />

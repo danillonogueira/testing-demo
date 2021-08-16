@@ -12,7 +12,7 @@ const StyledHistory = styled.div`
 const History = ({ rolls }) => {
   return (
     <StyledHistory>
-      {rolls.map((roll, index) => <span key={index + 1}>{roll.firstRoll}/{roll.secondRoll}</span>)}
+      {rolls.map((roll, index) => <span key={index + 1} data-testid={'roll'}>{roll.firstRoll}/{roll.secondRoll}</span>)}
     </StyledHistory>
   );
 };
