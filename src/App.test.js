@@ -23,7 +23,7 @@ const getDicesNums = () => {
   };
 };
 
-test('pair of random d6 numbers is displayed after click on btn', () => {
+test('pair of random d6 numbers is displayed after clicking on btn', () => {
   render(<App />);
   clickRollBtn();
 
@@ -33,7 +33,7 @@ test('pair of random d6 numbers is displayed after click on btn', () => {
   isInTheRange(dice2Num);
 });
 
-test('rolled pair of d6/d6 numbers is displayed in the history component', () => {
+test('rolled pair of d6 numbers is displayed in the history component', () => {
   render(<App />);
   clickRollBtn();
 
@@ -42,7 +42,7 @@ test('rolled pair of d6/d6 numbers is displayed in the history component', () =>
   expect(screen.getByText(`${dice1Num}/${dice2Num}`)).toBeTruthy();
 });
 
-test('history has a max number of 6 rolls', () => {
+test('history displays a max number of 6 rolls', () => {
   render(<App />);
 
   const button = screen.getByText('roll');

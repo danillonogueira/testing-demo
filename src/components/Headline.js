@@ -21,16 +21,14 @@ const StyledText = styled.div`
   font-weight: bold;
 `;
 
-const Headline = () => {
-  return (
-    <StyledHeadline>
-      <StyledDices 
-        alt="two giant red dices" 
-        src={dices} 
-      />
-      <StyledText>Dice Roller 2000</StyledText>
-    </StyledHeadline>
-  );
-};
+const Headline = () => (
+  <StyledHeadline>
+    <StyledDices 
+      alt="two giant red dices" 
+      src={dices} 
+    />
+    <StyledText>Dice Roller 2000</StyledText>
+  </StyledHeadline>
+);
 
 export default Headline;

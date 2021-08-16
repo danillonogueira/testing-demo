@@ -9,22 +9,20 @@ const StyledHistory = styled.div`
   height: 120px;
 `;
 
-const History = ({ rolls }) => {
-  return (
-    <StyledHistory>
-      {
-        rolls.map((roll, index) => {
-          return (
-            <span 
-              key={index + 1} 
-              data-testid={'roll'}>
-                {roll.firstRoll}/{roll.secondRoll}
-            </span>
-          );
-        })
-      }
-    </StyledHistory>
-  );
-};
+const History = ({ rolls }) => (
+  <StyledHistory>
+    {
+      rolls.map((roll, index) => {
+        return (
+          <span 
+            key={index + 1} 
+            data-testid={'roll'}>
+              {roll.firstRoll}/{roll.secondRoll}
+          </span>
+        );
+      })
+    }
+  </StyledHistory>
+);
 
 export default History;
